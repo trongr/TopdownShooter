@@ -7,20 +7,55 @@ public class Gun : MonoBehaviour {
 	public Transform spawn;
 	public enum GunType { Semi, Burst, Auto }
 	public GunType gun_type;
+	public float rpm;
+	public AudioSource gun_sound;
+
+	private float seconds_between_shots;
+	private float next_possible_shoot_time;
+	private LineRenderer tracer;
+
+	void Start() {
+		seconds_between_shots = 60 / rpm;
+		gun_sound = GetComponent<AudioSource>();
+		if (GetComponent<LineRenderer>()) {
+			tracer = GetComponent<LineRenderer>();
+		}
+	}
 
 	public void Shoot() {
-		Ray ray = new Ray(spawn.position, spawn.forward);
-		RaycastHit hit;
-		float shot_distance = 20;
-		if (Physics.Raycast(ray, out hit, shot_distance)) {
-			shot_distance = hit.distance;
+		if (CanShoot()) {
+			Ray ray = new Ray(spawn.position, spawn.forward);
+			RaycastHit hit;
+			float shot_distance = 20;
+			if (Physics.Raycast(ray, out hit, shot_distance)) {
+				shot_distance = hit.distance;
+			}
+			next_possible_shoot_time = Time.time + seconds_between_shots;
+			gun_sound.Play();
+
+			if (tracer) StartCoroutine("RenderTracer", ray.direction * shot_distance);
 		}
-		Debug.DrawRay(ray.origin, ray.direction * shot_distance, Color.red, 1);
 	}
 
 	public void ShootContinuous() {
 		if (gun_type == GunType.Auto) {
 			Shoot();
 		} // TODO shoot burst
+	}
+
+	private bool CanShoot() {
+		bool can_shoot = true;
+		if (Time.time < next_possible_shoot_time) {
+			can_shoot = false;
+		}
+		return can_shoot;
+	}
+
+	IEnumerator RenderTracer(Vector3 hitpoint) {
+		tracer.enabled = true;
+		tracer.SetPosition(0, spawn.position);
+		tracer.SetPosition(1, spawn.position + hitpoint);
+		yield return null;
+		tracer.enabled = false;
 	}
 }
