@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour {
 	public GunType gun_type;
 	public float rpm;
 	public AudioSource gun_sound;
+	public Transform shell_out;
+	public Rigidbody shell;
 
 	private float seconds_between_shots;
 	private float next_possible_shoot_time;
@@ -34,6 +36,9 @@ public class Gun : MonoBehaviour {
 			gun_sound.Play();
 
 			if (tracer) StartCoroutine("RenderTracer", ray.direction * shot_distance);
+
+			Rigidbody nshell = Instantiate(shell, shell_out.position, Quaternion.identity) as Rigidbody;
+			nshell.AddForce(shell_out.forward * Random.Range(150f, 200f) + spawn.forward * Random.Range(-10f, 10f));
 		}
 	}
 

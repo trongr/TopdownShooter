@@ -664,6 +664,7 @@ Transform:
   m_LocalScale: {x: 0.20594501, y: 0.17244941, z: 0.842373}
   m_Children:
   - {fileID: 1166982543}
+  - {fileID: 1353762739}
   m_Father: {fileID: 868231073}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -714,6 +715,8 @@ MonoBehaviour:
   gun_type: 2
   rpm: 120
   gun_sound: {fileID: 0}
+  shell_out: {fileID: 1353762739}
+  shell: {fileID: 54378074640499970, guid: 97bf71abab96d4bc2b7d7e32d2642e41, type: 2}
 --- !u!33 &1076799058
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -915,6 +918,34 @@ Transform:
   m_Father: {fileID: 1076799055}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353762738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1353762739}
+  m_Layer: 0
+  m_Name: ShellOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353762739
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1353762738}
+  m_LocalRotation: {x: -0.27059805, y: 0.6532815, z: 0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: -0, y: 0, z: -0.243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1076799055}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -45, y: 90, z: 0}
 --- !u!1001 &1411176798
 Prefab:
   m_ObjectHideFlags: 0
@@ -974,8 +1005,8 @@ GameObject:
   - component: {fileID: 1434841082}
   - component: {fileID: 1434841081}
   m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
+  m_Name: Ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1188,7 +1219,7 @@ GameObject:
   - component: {fileID: 2042083879}
   - component: {fileID: 2042083884}
   - component: {fileID: 2042083883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
