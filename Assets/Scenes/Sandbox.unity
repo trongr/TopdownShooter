@@ -1290,9 +1290,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e832bf7212545599fea64e2a1a9913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation_speed: 450
+  rotation_speed: 0.1
   walk_speed: 7
   run_speed: 10
+  acceleration: 5
   gun: {fileID: 1076799057}
 --- !u!143 &2042083884
 CharacterController:
