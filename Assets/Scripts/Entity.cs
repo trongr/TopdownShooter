@@ -8,14 +8,10 @@ public class Entity : MonoBehaviour {
 
 	public virtual void TakeDamage(float dmg) {
 		health -= dmg;
-		Debug.Log(health);
-		if (health < 0) {
-			Die();
-		}
+		if (health < 0) Die();
 	}
 
 	public virtual void Die() {
-		Debug.Log("You died!");
 		Destroy(gameObject);
 	}
 }
