@@ -444,6 +444,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 135942502581412964, guid: 6a930925497d944bd8e8400f9345c22b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a930925497d944bd8e8400f9345c22b, type: 2}
   m_IsPrefabParent: 0
@@ -484,6 +489,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4440171452864938, guid: 6a930925497d944bd8e8400f9345c22b, type: 2}
       propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 135942502581412964, guid: 6a930925497d944bd8e8400f9345c22b,
+        type: 2}
+      propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -917,7 +927,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 85843cb548b8543bcb87ad8808f8cf7b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97f385f5573ee4f2d809cd3df0783443, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
